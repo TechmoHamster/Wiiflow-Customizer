@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeLab Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">⧉</span>
+        <span>NodePulse</span>
+      </div>
+      <nav>
+        <p class="nav-label">Main</p>
+        <a class="nav-item active" href="#">Dashboard</a>
+        <a class="nav-item" href="#">Devices</a>
+        <a class="nav-item" href="#">Containers</a>
+        <a class="nav-item" href="#">Virtual Machines</a>
+        <a class="nav-item" href="#">Alerts</a>
+        <p class="nav-label">Support</p>
+        <a class="nav-item" href="#">Team</a>
+        <a class="nav-item" href="#">Settings</a>
+      </nav>
+      <div class="profile">
+        <div>
+          <p class="profile-name">Hakim Admin</p>
+          <p class="profile-email">homelab@local</p>
+        </div>
+        <span class="status-pill">Online</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Welcome back, Hakim</h1>
+          <p>Unified monitoring for your Synology NAS, macOS server, Docker, and VMs.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost">View Alerts</button>
+          <button class="primary">+ Add Server</button>
+        </div>
+      </header>
+
+      <section class="grid stats">
+        <div class="card">
+          <div class="card-header">
+            <p>Active Nodes</p>
+            <span class="chip">Healthy</span>
+          </div>
+          <h2>7</h2>
+          <p class="muted">Synology, macOS, 4 containers, 1 VM</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Average CPU Load</p>
+            <span class="chip warn">High</span>
+          </div>
+          <h2>62%</h2>
+          <p class="muted">Last 24h +8%</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Memory Usage</p>
+            <span class="chip">Stable</span>
+          </div>
+          <h2>58%</h2>
+          <p class="muted">Peak 71% at 14:10</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Network Throughput</p>
+            <span class="chip">Balanced</span>
+          </div>
+          <h2>1.4 Gbps</h2>
+          <p class="muted">TX 0.8 / RX 0.6</p>
+        </div>
+      </section>
+
+      <section class="grid layout">
+        <div class="card span-2">
+          <div class="card-header">
+            <div>
+              <p>Performance Trends</p>
+              <span class="muted">Last 24 hours</span>
+            </div>
+            <div class="tabs">
+              <button class="tab active">Day</button>
+              <button class="tab">Week</button>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-meta">
+              <div>
+                <p class="muted">CPU Usage</p>
+                <h3>42%</h3>
+              </div>
+              <span class="chip">Stable</span>
+            </div>
+            <div class="chart-area">
+              <svg viewBox="0 0 520 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="cpuFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ff9f4a" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#ff9f4a" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 160 L40 150 L80 154 L120 145 L160 136 L200 140 L240 132 L280 128 L320 135 L360 130 L400 134 L440 128 L480 122 L520 125 L520 200 L0 200 Z" fill="url(#cpuFill)" />
+                <path d="M0 160 L40 150 L80 154 L120 145 L160 136 L200 140 L240 132 L280 128 L320 135 L360 130 L400 134 L440 128 L480 122 L520 125" stroke="#ff9f4a" stroke-width="3" />
+              </svg>
+              <div class="chart-axis">
+                <span>00:00</span>
+                <span>12:00</span>
+                <span>24:00</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mini-charts">
+            <div class="mini-metric">
+              <div class="chart-meta">
+                <div>
+                  <p class="muted">Memory Usage</p>
+                  <h4>68%</h4>
+                </div>
+              </div>
+              <svg viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="memFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ffd28f" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#ffd28f" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 60 L30 56 L60 54 L90 52 L120 50 L150 52 L180 54 L210 52 L220 50 L220 90 L0 90 Z" fill="url(#memFill)" />
+                <path d="M0 60 L30 56 L60 54 L90 52 L120 50 L150 52 L180 54 L210 52 L220 50" stroke="#ffd28f" stroke-width="2.5" />
+              </svg>
+            </div>
+            <div class="mini-metric">
+              <div class="chart-meta">
+                <div>
+                  <p class="muted">Network Traffic</p>
+                  <h4>15 MB/s</h4>
+                </div>
+              </div>
+              <svg viewBox="0 0 220 90" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="netFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#8dc1ff" stop-opacity="0.35" />
+                    <stop offset="100%" stop-color="#8dc1ff" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 70 L30 68 L60 64 L90 66 L120 60 L150 58 L180 62 L210 60 L220 64 L220 90 L0 90 Z" fill="url(#netFill)" />
+                <path d="M0 70 L30 68 L60 64 L90 66 L120 60 L150 58 L180 62 L210 60 L220 64" stroke="#8dc1ff" stroke-width="2.5" />
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="card span-1">
+          <div class="card-header">
+            <p>Resource Usage</p>
+            <span class="chip">24h avg</span>
+          </div>
+          <div class="bars">
+            <div>
+              <div class="bar-label">
+                <span>CPU</span>
+                <span>67%</span>
+              </div>
+              <div class="bar"><span style="width: 67%"></span></div>
+            </div>
+            <div>
+              <div class="bar-label">
+                <span>Memory</span>
+                <span>54%</span>
+              </div>
+              <div class="bar"><span style="width: 54%"></span></div>
+            </div>
+            <div>
+              <div class="bar-label">
+                <span>Disk I/O</span>
+                <span>79%</span>
+              </div>
+              <div class="bar"><span style="width: 79%"></span></div>
+            </div>
+            <div>
+              <div class="bar-label">
+                <span>Network TX</span>
+                <span>48%</span>
+              </div>
+              <div class="bar"><span style="width: 48%"></span></div>
+            </div>
+          </div>
+          <div class="alert">
+            <h4>Needs attention</h4>
+            <p>Docker VM (vm-ops) CPU spikes at 03:22.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid layout">
+        <div class="card span-2">
+          <div class="card-header">
+            <p>Virtual Machines</p>
+            <button class="ghost">+ Add new</button>
+          </div>
+          <div class="vm-grid">
+            <article class="vm-card">
+              <div class="vm-head">
+                <div>
+                  <h3>Ubuntu Server</h3>
+                  <span class="status-pill good">Active</span>
+                </div>
+                <span class="ellipsis">•••</span>
+              </div>
+              <div class="vm-body">
+                <div>
+                  <p class="muted">IP Address</p>
+                  <p>10.0.0.42</p>
+                </div>
+                <div>
+                  <p class="muted">CPU</p>
+                  <p>6 Cores</p>
+                </div>
+                <div>
+                  <p class="muted">RAM</p>
+                  <p>24 GB</p>
+                </div>
+              </div>
+              <div class="mini-chart"></div>
+            </article>
+            <article class="vm-card">
+              <div class="vm-head">
+                <div>
+                  <h3>macOS Build Agent</h3>
+                  <span class="status-pill warn">Warm</span>
+                </div>
+                <span class="ellipsis">•••</span>
+              </div>
+              <div class="vm-body">
+                <div>
+                  <p class="muted">IP Address</p>
+                  <p>10.0.0.88</p>
+                </div>
+                <div>
+                  <p class="muted">CPU</p>
+                  <p>8 Cores</p>
+                </div>
+                <div>
+                  <p class="muted">RAM</p>
+                  <p>32 GB</p>
+                </div>
+              </div>
+              <div class="mini-chart alt"></div>
+            </article>
+          </div>
+        </div>
+
+        <div class="card span-1">
+          <div class="card-header">
+            <p>Active Containers</p>
+            <span class="chip">Docker</span>
+          </div>
+          <ul class="list">
+            <li>
+              <div>
+                <p>plex-media</p>
+                <span class="muted">Streaming & transcoding</span>
+              </div>
+              <span class="status-pill good">Running</span>
+            </li>
+            <li>
+              <div>
+                <p>homebridge</p>
+                <span class="muted">Smart home bridge</span>
+              </div>
+              <span class="status-pill">Stable</span>
+            </li>
+            <li>
+              <div>
+                <p>backup-agent</p>
+                <span class="muted">NAS sync jobs</span>
+              </div>
+              <span class="status-pill warn">Busy</span>
+            </li>
+            <li>
+              <div>
+                <p>observability</p>
+                <span class="muted">Prometheus + Grafana</span>
+              </div>
+              <span class="status-pill">Online</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="grid layout">
+        <div class="card span-3">
+          <div class="card-header">
+            <p>Server Summary</p>
+            <div class="tabs">
+              <button class="tab active">All</button>
+              <button class="tab">NAS</button>
+              <button class="tab">macOS</button>
+              <button class="tab">VMs</button>
+            </div>
+          </div>
+          <div class="table">
+            <div class="row header">
+              <span>Server</span>
+              <span>Status</span>
+              <span>CPU</span>
+              <span>Memory</span>
+              <span>Disk</span>
+              <span>Uptime</span>
+            </div>
+            <div class="row">
+              <span>Synology NAS DS923+</span>
+              <span class="status-pill good">Healthy</span>
+              <span>32%</span>
+              <span>61%</span>
+              <span>48%</span>
+              <span>128 days</span>
+            </div>
+            <div class="row">
+              <span>macOS Studio Server</span>
+              <span class="status-pill">Stable</span>
+              <span>58%</span>
+              <span>54%</span>
+              <span>62%</span>
+              <span>31 days</span>
+            </div>
+            <div class="row">
+              <span>Ubuntu VM (ci-runner)</span>
+              <span class="status-pill warn">Warm</span>
+              <span>74%</span>
+              <span>71%</span>
+              <span>80%</span>
+              <span>4 days</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
