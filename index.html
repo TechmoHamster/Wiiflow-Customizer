@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HomeLab Pulse - Server Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">◦</span>
+        <div>
+          <p class="brand-name">HomeLab Pulse</p>
+          <p class="brand-sub">Private cloud monitor</p>
+        </div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active">Dashboard</button>
+        <button class="nav-item">NAS</button>
+        <button class="nav-item">macOS Server</button>
+        <button class="nav-item">Docker</button>
+        <button class="nav-item">Virtual Machines</button>
+        <button class="nav-item">Backups</button>
+        <button class="nav-item">Alerts</button>
+        <button class="nav-item">Network</button>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="user">
+          <div class="avatar">AH</div>
+          <div>
+            <p class="user-name">Alex Hart</p>
+            <p class="user-role">Admin · HomeLab</p>
+          </div>
+        </div>
+        <button class="ghost">Settings</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Welcome back, Alex</h1>
+          <p class="subtitle">Synology NAS + macOS server health overview</p>
+        </div>
+        <div class="actions">
+          <div class="search">
+            <span>🔍</span>
+            <input type="text" placeholder="Search servers, containers, or VMs" />
+          </div>
+          <button class="primary">Add Node</button>
+          <button class="ghost">View Alerts</button>
+        </div>
+      </header>
+
+      <section class="kpis">
+        <article class="card">
+          <div class="card-header">
+            <p>Global Uptime</p>
+            <span class="chip success">99.94%</span>
+          </div>
+          <h2>247 days</h2>
+          <p class="muted">Last outage 31 days ago</p>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <p>NAS Storage</p>
+            <span class="chip warning">72% used</span>
+          </div>
+          <h2>28.4 TB / 39.6 TB</h2>
+          <p class="muted">4 volumes · SHR-2</p>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <p>macOS Server Load</p>
+            <span class="chip success">Stable</span>
+          </div>
+          <h2>34% CPU</h2>
+          <p class="muted">Memory 61% · Temp 54°C</p>
+        </article>
+        <article class="card">
+          <div class="card-header">
+            <p>Network Throughput</p>
+            <span class="chip info">1.3 Gbps</span>
+          </div>
+          <h2>TX 840 Mbps</h2>
+          <p class="muted">RX 460 Mbps · 24h avg</p>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="card large">
+          <div class="card-header">
+            <div>
+              <h3>Resource Trends</h3>
+              <p class="muted">24 hour rolling averages</p>
+            </div>
+            <div class="legend">
+              <span><span class="dot teal"></span>NAS CPU</span>
+              <span><span class="dot purple"></span>Mac CPU</span>
+              <span><span class="dot orange"></span>VM Load</span>
+            </div>
+          </div>
+          <div class="chart">
+            <svg viewBox="0 0 600 180" aria-hidden="true">
+              <polyline
+                points="0,140 60,120 120,135 180,90 240,110 300,80 360,100 420,70 480,95 540,60 600,85"
+                fill="none" stroke="#2dd4bf" stroke-width="3" />
+              <polyline
+                points="0,160 60,155 120,150 180,130 240,135 300,120 360,125 420,105 480,110 540,90 600,100"
+                fill="none" stroke="#a78bfa" stroke-width="3" />
+              <polyline
+                points="0,130 60,135 120,120 180,110 240,115 300,100 360,95 420,110 480,90 540,75 600,70"
+                fill="none" stroke="#f97316" stroke-width="3" />
+            </svg>
+          </div>
+          <div class="trend-grid">
+            <div>
+              <p class="muted">Synology DS1821+</p>
+              <h4>22% CPU · 58% RAM</h4>
+            </div>
+            <div>
+              <p class="muted">macOS Studio</p>
+              <h4>34% CPU · 61% RAM</h4>
+            </div>
+            <div>
+              <p class="muted">VM Cluster</p>
+              <h4>48% CPU · 72% RAM</h4>
+            </div>
+          </div>
+        </article>
+
+        <article class="card medium">
+          <div class="card-header">
+            <h3>Active Alerts</h3>
+            <span class="chip danger">3</span>
+          </div>
+          <ul class="alert-list">
+            <li>
+              <span class="alert-dot danger"></span>
+              Backup target "Offsite-01" missed for 2 days.
+            </li>
+            <li>
+              <span class="alert-dot warning"></span>
+              Docker container "plex" memory spike (87%).
+            </li>
+            <li>
+              <span class="alert-dot info"></span>
+              macOS server update pending (Ventura 13.6.1).
+            </li>
+          </ul>
+          <button class="ghost full">Resolve Alerts</button>
+        </article>
+
+        <article class="card medium">
+          <div class="card-header">
+            <h3>Storage Pools</h3>
+            <span class="chip warning">2 Warnings</span>
+          </div>
+          <div class="meter">
+            <div>
+              <p>Media Pool</p>
+              <div class="bar"><span style="width: 78%"></span></div>
+              <small>18.2 TB / 23.4 TB</small>
+            </div>
+            <div>
+              <p>Projects Pool</p>
+              <div class="bar"><span style="width: 61%"></span></div>
+              <small>8.9 TB / 14.6 TB</small>
+            </div>
+            <div>
+              <p>Backups Pool</p>
+              <div class="bar"><span style="width: 54%"></span></div>
+              <small>2.1 TB / 3.8 TB</small>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="card wide">
+          <div class="card-header">
+            <h3>Docker Containers</h3>
+            <button class="ghost">Manage</button>
+          </div>
+          <div class="table">
+            <div class="row header">
+              <span>Name</span>
+              <span>Status</span>
+              <span>CPU</span>
+              <span>Memory</span>
+              <span>Ports</span>
+            </div>
+            <div class="row">
+              <span>plex</span>
+              <span class="status warning">Degraded</span>
+              <span>41%</span>
+              <span>3.1 GB</span>
+              <span>32400</span>
+            </div>
+            <div class="row">
+              <span>home-assistant</span>
+              <span class="status success">Running</span>
+              <span>18%</span>
+              <span>1.2 GB</span>
+              <span>8123</span>
+            </div>
+            <div class="row">
+              <span>immich</span>
+              <span class="status success">Running</span>
+              <span>23%</span>
+              <span>2.4 GB</span>
+              <span>2283</span>
+            </div>
+            <div class="row">
+              <span>traefik</span>
+              <span class="status info">Idle</span>
+              <span>5%</span>
+              <span>210 MB</span>
+              <span>80 · 443</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card wide">
+          <div class="card-header">
+            <h3>Virtual Machines</h3>
+            <button class="primary">Add VM</button>
+          </div>
+          <div class="vm-grid">
+            <div class="vm">
+              <div>
+                <h4>Ubuntu Server</h4>
+                <p class="muted">192.168.0.52 · 4 vCPU · 16 GB</p>
+              </div>
+              <span class="chip success">Active</span>
+              <div class="vm-chart">
+                <svg viewBox="0 0 200 70" aria-hidden="true">
+                  <polyline
+                    points="0,55 20,50 40,52 60,40 80,45 100,32 120,38 140,30 160,28 180,22 200,18"
+                    fill="none" stroke="#60a5fa" stroke-width="3" />
+                  <polyline
+                    points="0,60 20,58 40,56 60,50 80,52 100,48 120,44 140,42 160,40 180,36 200,34"
+                    fill="none" stroke="#34d399" stroke-width="3" />
+                </svg>
+              </div>
+            </div>
+            <div class="vm">
+              <div>
+                <h4>Windows 11 Pro</h4>
+                <p class="muted">192.168.0.61 · 6 vCPU · 32 GB</p>
+              </div>
+              <span class="chip info">Idle</span>
+              <div class="vm-chart">
+                <svg viewBox="0 0 200 70" aria-hidden="true">
+                  <polyline
+                    points="0,48 20,44 40,46 60,38 80,36 100,34 120,32 140,30 160,28 180,26 200,24"
+                    fill="none" stroke="#facc15" stroke-width="3" />
+                  <polyline
+                    points="0,62 20,60 40,58 60,56 80,54 100,52 120,50 140,48 160,46 180,44 200,42"
+                    fill="none" stroke="#c084fc" stroke-width="3" />
+                </svg>
+              </div>
+            </div>
+            <div class="vm">
+              <div>
+                <h4>TrueNAS Scale</h4>
+                <p class="muted">192.168.0.89 · 8 vCPU · 48 GB</p>
+              </div>
+              <span class="chip warning">High I/O</span>
+              <div class="vm-chart">
+                <svg viewBox="0 0 200 70" aria-hidden="true">
+                  <polyline
+                    points="0,62 20,60 40,52 60,46 80,40 100,34 120,32 140,28 160,24 180,20 200,18"
+                    fill="none" stroke="#fb7185" stroke-width="3" />
+                  <polyline
+                    points="0,60 20,58 40,56 60,54 80,50 100,46 120,42 140,40 160,36 180,32 200,30"
+                    fill="none" stroke="#22d3ee" stroke-width="3" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
