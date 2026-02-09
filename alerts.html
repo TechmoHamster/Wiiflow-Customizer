@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alerts | HomeLab Command Center</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark">⧉</span>
+        <span>NodePulse</span>
+      </div>
+      <nav>
+        <p class="nav-label">Main</p>
+        <a class="nav-item" href="index.html">Dashboard</a>
+        <a class="nav-item" href="devices.html">Devices</a>
+        <a class="nav-item" href="containers.html">Containers</a>
+        <a class="nav-item" href="vms.html">Virtual Machines</a>
+        <a class="nav-item active" href="alerts.html">Alerts</a>
+        <p class="nav-label">Support</p>
+        <a class="nav-item" href="team.html">Team</a>
+        <a class="nav-item" href="settings.html">Settings</a>
+      </nav>
+      <div class="profile">
+        <div>
+          <p class="profile-name">Hakim Admin</p>
+          <p class="profile-email">homelab@local</p>
+        </div>
+        <span class="status-pill">Online</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Alerts & Incidents</h1>
+          <p>Review NAS, macOS, container, and VM health alerts.</p>
+        </div>
+        <div class="topbar-actions">
+          <button class="ghost">Silence</button>
+          <button class="primary">+ New Rule</button>
+        </div>
+      </header>
+
+      <section class="grid stats">
+        <div class="card">
+          <div class="card-header">
+            <p>Open Alerts</p>
+            <span class="chip warn">Critical</span>
+          </div>
+          <h2>5</h2>
+          <p class="muted">2 critical, 3 warning</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Resolved Today</p>
+            <span class="chip">Stable</span>
+          </div>
+          <h2>7</h2>
+          <p class="muted">Average MTTR 18 mins</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Automation Rules</p>
+            <span class="chip">Enabled</span>
+          </div>
+          <h2>12</h2>
+          <p class="muted">Pager + webhook + SMS</p>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <p>Escalations</p>
+            <span class="chip">This week</span>
+          </div>
+          <h2>3</h2>
+          <p class="muted">On-call rotation A</p>
+        </div>
+      </section>
+
+      <section class="grid layout">
+        <div class="card span-2">
+          <div class="card-header">
+            <p>Recent Alerts</p>
+            <div class="tabs">
+              <button class="tab active">All</button>
+              <button class="tab">Critical</button>
+              <button class="tab">Warnings</button>
+            </div>
+          </div>
+          <div class="table">
+            <div class="row header">
+              <span>Alert</span>
+              <span>Status</span>
+              <span>Source</span>
+              <span>Impact</span>
+              <span>Created</span>
+              <span>Owner</span>
+            </div>
+            <div class="row">
+              <span>NAS storage pool 1 above 80%</span>
+              <span class="status-pill warn">Warning</span>
+              <span>Synology</span>
+              <span>High</span>
+              <span>12 min ago</span>
+              <span>Hakim</span>
+            </div>
+            <div class="row">
+              <span>Docker VM vm-ops CPU spike</span>
+              <span class="status-pill warn">Warning</span>
+              <span>Hypervisor</span>
+              <span>Medium</span>
+              <span>32 min ago</span>
+              <span>On-call</span>
+            </div>
+            <div class="row">
+              <span>macOS host RAM pressure 85%</span>
+              <span class="status-pill warn">Warning</span>
+              <span>macOS</span>
+              <span>High</span>
+              <span>1 hr ago</span>
+              <span>Hakim</span>
+            </div>
+            <div class="row">
+              <span>Container backup-agent restart loop</span>
+              <span class="status-pill">Investigating</span>
+              <span>Docker</span>
+              <span>Medium</span>
+              <span>2 hrs ago</span>
+              <span>On-call</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card span-1">
+          <div class="card-header">
+            <p>On-call Status</p>
+            <span class="chip">Now</span>
+          </div>
+          <ul class="list">
+            <li>
+              <div>
+                <p>Primary</p>
+                <span class="muted">Hakim Admin</span>
+              </div>
+              <span class="status-pill good">Active</span>
+            </li>
+            <li>
+              <div>
+                <p>Secondary</p>
+                <span class="muted">Chris K.</span>
+              </div>
+              <span class="status-pill">Standby</span>
+            </li>
+            <li>
+              <div>
+                <p>Escalation</p>
+                <span class="muted">Team SMS</span>
+              </div>
+              <span class="status-pill warn">1 pending</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
